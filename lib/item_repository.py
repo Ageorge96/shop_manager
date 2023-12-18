@@ -6,7 +6,7 @@ class ItemRepository:
         self.connection = connection
 
     def all(self):
-        rows = self.connection.execute('SELECT * FROM items')
+        rows = self.connection.execute('SELECT * FROM items ORDER BY id')
 
         items = []
 

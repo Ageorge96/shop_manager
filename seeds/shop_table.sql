@@ -1,16 +1,16 @@
-CREATE TABLE items (
+CREATE TABLE IF NOT EXISTS items (
     id SERIAL PRIMARY KEY,
     name VARCHAR(20),
     price FLOAT,
     quantity SMALLINT
 );
 
-CREATE TABLE customers (
+CREATE TABLE IF NOT EXISTS customers (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(35)
 );
 
-CREATE TABLE orders (
+CREATE TABLE IF NOT EXISTS orders (
 	id SERIAL PRIMARY KEY,
 	item_id TEXT,
 	item_quantity TEXT,
