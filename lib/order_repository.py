@@ -24,7 +24,7 @@ class OrderRepository:
             orders.append(Order(row['id'], row['name'], order_dict, row['order_time']))
         return orders
     
-    def make_order(self, order):
+    def make_order(self, order: Order):
         # check order item is avaliable
         items_list = list(order.order.keys())
         quantities_list = map(str, order.order.values())
@@ -43,7 +43,7 @@ class OrderRepository:
 
         self.connection.execute("""
             INSERT INTO orders (item_id, item_quantity, order_time, customer_id) 
-            VALUES (%s, %s, %s, %s)""", [order_items, order_quantities, order.date, customer[0]['id']])
+            VALUES (%s, %s, %s, %s)""", [order_items, order_quantities, order.time_of_order, customer[0]['id']])
     
 
     def order_to_dict(self, item_ids, quantities):
